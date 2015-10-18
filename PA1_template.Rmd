@@ -7,8 +7,8 @@ output:
 ## Libraries
 
 ```{r}
-library(lattice)
 
+library(lattice)
 
 ```
 
@@ -18,23 +18,51 @@ library(lattice)
 
 activity <- read.csv("activity.csv")
 head(activity)
-dates <- as.Date(activity$date, "%Y-%m-%d")
-numdays <- length(unique(dates))
+activity$date<- as.Date(activity$date, "%Y-%m-%d")
 
 ```
 
 ## What is mean total number of steps taken per day?
 
+```{r}
+
+stepbyday <- aggregate(steps ~ date, activity, sum, na.rm = TRUE)
+
+# Total steps by date
+head(stepbyday)
+
+# Histogram of Steps
+hist(stepbyday$steps, xlab = "Total Steps", main = "Distribution of Total Number of Steps per Day", col = "blue")
+
+# Mean Steps per day
+round(mean(stepbyday$steps))
+
+# Median Steps per day
+median(stepbyday$steps)
 
 
-
+```
 
 ## What is the average daily activity pattern?
 
+```{r}
 
+
+
+```
 
 ## Imputing missing values
 
+```{r}
 
+
+
+```
 
 ## Are there differences in activity patterns between weekdays and weekends?
+
+```{r}
+
+
+
+```
