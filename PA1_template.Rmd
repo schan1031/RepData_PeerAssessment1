@@ -4,13 +4,28 @@ output:
   html_document:
     keep_md: true
 ---
+## Libraries
 
+```{r}
+library(lattice)
+
+
+```
 
 ## Loading and preprocessing the data
 
+```{r}
 
+activity <- read.csv("activity.csv")
+head(activity)
+dates <- as.Date(activity$date, "%Y-%m-%d")
+numdays <- length(unique(dates))
+
+```
 
 ## What is mean total number of steps taken per day?
+
+
 
 
 
